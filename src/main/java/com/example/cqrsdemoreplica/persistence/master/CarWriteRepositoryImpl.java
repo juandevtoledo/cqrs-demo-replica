@@ -20,13 +20,15 @@ public class CarWriteRepositoryImpl implements CarWriteRepository {
     @Override
     public void save(Car car) {
         this.dbSystem.getMaster().getStore().put(car.getId(), car);
-        //Replicate informtion to READ system
+        //Replicate information to READ system
         this.dbSystem.replicate(car);
     }
 
     @Override
     public void update(Car car) {
+
         this.save(car);
+        this.dbSystem.replicate(car);
     }
 
     @Override

@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Repository;
 
 import com.example.cqrsdemoreplica.persistence.database.DBSystem;
+import com.example.cqrsdemoreplica.persistence.model.Car;
 import com.example.cqrsdemoreplica.persistence.replica.dto.CarIdColorDTO;
 import com.example.cqrsdemoreplica.persistence.replica.dto.CardBrandColorDTO;
 
@@ -17,9 +18,9 @@ public class CarReadRepositoryImpl implements CarReadRepository {
 
     // Conexion simulada a la "replica", una base solo para lecturas
 
-    private DBSystem dbSystem;
+    private DBSystem<Car> dbSystem;
 
-    public CarReadRepositoryImpl(final DBSystem dbSystem) {
+    public CarReadRepositoryImpl(final DBSystem<Car> dbSystem) {
         this.dbSystem = dbSystem;
     }
 

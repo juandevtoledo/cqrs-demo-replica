@@ -31,7 +31,9 @@ public class TransactionRedisAdapter implements TransactionRedisGateway {
     }
 
     private String getHashFromClass(Class<?> clazz) {
-        return clazz.getName().replace('.', '_');
+        String nameClass = clazz.getName();
+        String[] partNameClass = nameClass.split("\\.");
+        return partNameClass[partNameClass.length - 1];
     }
 
 }
